@@ -1,0 +1,14 @@
+﻿opencv-python
+scikit-image
+pillow
+numpy
+scipy
+scikit-learn
+tensorflow==2.15.0
+elasticsearch==8.12.0
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic==2.7.1
+joblib
+requests
