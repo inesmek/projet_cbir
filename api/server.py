@@ -193,8 +193,7 @@ async def search_hybrid(
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Image error: {e!r}")
 
-    # CRITICAL OPTIMIZATION for 753k docs:
-    # - Use minimal num_candidates (50-100 max, not topk*5!)
+    
     knn_body = {
         "_source": ["path", "tags", "width", "height"],
         "track_total_hits": False,
@@ -264,4 +263,4 @@ async def search_hybrid(
 if __name__ == "__main__":
     os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
     import uvicorn
-    uvicorn.run("server_hybrid:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
